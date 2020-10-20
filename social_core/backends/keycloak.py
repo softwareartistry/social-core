@@ -24,7 +24,7 @@ class KeycloakOAuth2(BaseOAuth2):  # pylint: disable=abstract-method
     ]
 
     def authorization_url(self):
-        return self.setting('AUTHOIZATION_URL') or self.AUTHORIZATION_URL
+        return self.setting('AUTHORIZATION_URL') or self.AUTHORIZATION_URL
 
     def access_token_url(self):
         return self.setting('ACCESS_TOKEN_URL') or self.ACCESS_TOKEN_URL
