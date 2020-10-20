@@ -11,6 +11,7 @@ class KeycloakOAuth2(BaseOAuth2):  # pylint: disable=abstract-method
     AUTHORIZATION_URL = 'http://localhost:8080/auth/realms/your-realms-name/protocol/openid-connect/auth'
     ACCESS_TOKEN_URL = 'http://localhost:8080/auth/realms/your-realms-name/protocol/openid-connect/token'
     USER_DETAILS_URL = 'http://localhost:8080/auth/realms/your-realms-name/protocol/openid-connect/userinfo'
+    LOGOUT_URL = 'http://localhost:8080/auth/realms/your-realms-name/protocol/openid-connect/userinfo/logout'
 
     DEFAULT_SCOPE = [
         'openid'
@@ -30,6 +31,9 @@ class KeycloakOAuth2(BaseOAuth2):  # pylint: disable=abstract-method
 
     def user_details_url(self):
         return self.setting('USER_DETAILS_URL') or self.USER_DETAILS_URL
+    
+    def logout_url(self):
+        return self.setting('LOGOUT_URL') or self.LOGOUT_URL
    
     def audience(self):
         return self.setting('KEY') or self.KEY
